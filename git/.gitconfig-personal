@@ -1,0 +1,11 @@
+[user]
+        name = rn23thakur
+        email = rn23thakur@gmail.com
+
+# GitHub CLI credential helper (HTTPS fallback)
+[credential "https://github.com"]
+        helper =
+        helper = !/home/pookie/.local/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+        helper =
+        helper = !/home/pookie/.local/bin/gh auth git-credential

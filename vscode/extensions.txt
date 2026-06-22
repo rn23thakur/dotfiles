@@ -1,0 +1,8 @@
+catppuccin.catppuccin-vsc
+catppuccin.catppuccin-vsc-icons
+vscodevim.vim
+codista.vscode-autosave
+esbenp.prettier-vscode
+codeium.codeium
+eamodio.gitlens
+anthropic.claude-code

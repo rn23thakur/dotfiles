@@ -1,0 +1,7 @@
+[user]
+        name = rn23thakur
+        email = your.work.email@company.com
+
+# Note: No credential helpers here. 
+# For Bitbucket work repositories, use SSH keys (e.g., git@bitbucket.org:...)
+# so you never have to deal with HTTP password prompts.

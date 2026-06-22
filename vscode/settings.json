@@ -1,0 +1,62 @@
+{
+    "workbench.iconTheme": "catppuccin-mocha",
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "workbench.secondarySideBar.enabled": false,
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.activityBar.location": "top",
+    "workbench.sideBar.location": "right",
+    "workbench.layoutControl.enabled": false,
+
+    "editor.fontSize": 16,
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', monospace",
+    "editor.lineNumbers": "relative",
+    "editor.wordWrap": "on",
+    "editor.acceptSuggestionOnEnter": "off",
+
+    "files.autoSave": "afterDelay",
+    "vscode-autosave.disableProgressNotifications": true,
+    "window.commandCenter": false,
+    "window.menuBarVisibility": "compact",
+    "explorer.confirmDelete": false,
+    
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    "codeium.enableConfig": {
+        "*": true,
+        "markdown": true
+    },
+    
+    "remote.autoForwardPortsSource": "hybrid",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'",
+    "terminal.integrated.fontSize": 17,
+
+    // 컴 Vim Settings (Crucial for your workflow) 컴컴컴컴컴컴컴컴컴�
+    "vim.useSystemClipboard": true,
+    "vim.foldfix": true,
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.duration": 200,
+    "vim.highlightedyank.color": "rgba(255, 255, 0, 0.3)",
+    "vim.handleKeys": {
+        "<C-p>": false,
+        "<C-w>": false,
+        "<C-b>": false
+    },
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    },
+
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+    "claudeCode.preferredLocation": "panel",
+    
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    }
+}

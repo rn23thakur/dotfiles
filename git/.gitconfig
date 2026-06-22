@@ -1,0 +1,21 @@
+[init]
+        defaultBranch = main
+[core]
+        # Tries Neovim first; if nvim isn't installed, falls back to VS Code
+        editor = "nvim || code --wait"
+[push]
+        autoSetupRemote = true
+[pull]
+        rebase = true
+
+# ==========================================
+# PROFILE ROUTING
+# ==========================================
+
+# 1. Load personal profile by default everywhere
+[include]
+        path = ~/.gitconfig-personal
+
+# 2. If inside the ~/work/ folder, load work overrides
+[includeIf "gitdir:~/work/"]
+        path = ~/.gitconfig-work
