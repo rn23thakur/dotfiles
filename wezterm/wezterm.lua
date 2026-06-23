@@ -160,67 +160,29 @@ config.keys = {
 }
 
 -- ÄÄÄ Status Bar ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
-wezterm.on('update-left-status', function(window, pane)
+wezterm.on('update-right-status', function(window, pane)
     local is_leader = window:leader_is_active()
-    local kt = window:active_key_table()
+    local kt        = window:active_key_table()
 
-    -- Determine mode
-    local mode_text  = ''
-    local mode_bg    = mocha.mauve   -- default: leader color
-    local mode_fg    = mocha.base
+    local bar_bg = mocha.crust  -- idle: normal bar color
 
     if kt == 'resize_pane' then
-        mode_text = '  RESIZE '
-        mode_bg   = mocha.peach
+        bar_bg = mocha.peach
     elseif is_leader then
-        mode_text = '  LDR '
-        mode_bg   = mocha.yellow
-        mode_fg   = mocha.base
-    else
-        -- idle: just a subtle left edge, no pill
-        window:set_left_status(wezterm.format {
-            { Background = { Color = mocha.crust } },
-            { Text = '  ' },
-        })
-        return
+        bar_bg = mocha.yellow
     end
 
-    window:set_left_status(wezterm.format {
-        -- pill background
-        { Foreground = { Color = mode_fg } },
-        { Background = { Color = mode_bg } },
-        { Attribute  = { Intensity = 'Bold' } },
-        { Text = mode_text },
-        -- powerline arrow out
-        { Foreground = { Color = mode_bg  } },
-        { Background = { Color = mocha.crust } },
-        { Text = '' },
-        { Text = ' ' },
-    })
-end)
-
--- Right side: workspace + clock
-wezterm.on('update-right-status', function(window, pane)
     local workspace = wezterm.mux.get_active_workspace()
-    local time      = wezterm.strftime '%H:%M'
-    local date      = wezterm.strftime '%d %b'
 
     window:set_right_status(wezterm.format {
-        { Foreground = { Color = mocha.surface0 } },
-        { Background = { Color = mocha.crust    } },
-        { Text = '' },
-        { Foreground = { Color = mocha.sky      } },
-        { Background = { Color = mocha.surface0 } },
-        { Text = '  ' .. workspace .. ' ' },
-        { Foreground = { Color = mocha.surface1 } },
-        { Background = { Color = mocha.surface0 } },
-        { Text = '³' },
-        { Foreground = { Color = mocha.overlay1 } },
-        { Text = ' ' .. date .. ' ' },
-        { Text = '³' },
-        { Foreground = { Color = mocha.text     } },
-        { Attribute = { Intensity = 'Bold'      } },
-        { Text = ' ' .. time .. ' ' },
+        -- colored flood-fill block (wide padding pushes it left across the bar)
+        { Background = { Color = bar_bg         } },
+        { Foreground = { Color = mocha.base      } },
+        { Attribute  = { Intensity = 'Bold'      } },
+        { Text = '                              ' },  -- ~30 spaces, tune to taste
+        -- workspace label
+        { Foreground = { Color = mocha.sky       } },
+        { Text = '  ' .. workspace .. '  '       },
     })
 end)
 
